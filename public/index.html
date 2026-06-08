@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clipflan</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="history-pane" aria-label="Clipboard history">
+        <header class="pane-header">
+          <div>
+            <p class="eyebrow">Shared clipboard</p>
+            <h1>Clipflan</h1>
+          </div>
+          <span id="itemCount" class="count-pill">0</span>
+        </header>
+
+        <div class="history-tools">
+          <input id="historyFilter" type="search" placeholder="Filter history" autocomplete="off">
+          <button id="refreshButton" class="icon-button" type="button" title="Refresh history" aria-label="Refresh history">Refresh</button>
+        </div>
+
+        <div id="historyList" class="history-list" role="listbox" aria-label="Pasted items"></div>
+      </aside>
+
+      <section class="workspace" aria-label="Clipboard workspace">
+        <div class="paste-zone" id="pasteZone">
+          <div class="paste-header">
+            <div>
+              <p class="eyebrow">New paste</p>
+              <h2>Drop, paste, or type</h2>
+            </div>
+            <label class="file-button">
+              Image
+              <input id="imageInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp">
+            </label>
+          </div>
+
+          <textarea id="textInput" spellcheck="false" placeholder="Paste text here, then save it to the shared history. You can also paste an image anywhere on this page."></textarea>
+
+          <div class="actions-row">
+            <button id="saveTextButton" class="primary-button" type="button">Save text</button>
+            <button id="clearTextButton" class="secondary-button" type="button">Clear</button>
+            <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <article class="preview-panel" aria-label="Selected clipboard item">
+          <header class="preview-header">
+            <div>
+              <p class="eyebrow">Selected item</p>
+              <h2 id="previewTitle">Nothing selected</h2>
+            </div>
+            <div class="preview-actions">
+              <button id="copyButton" class="primary-button" type="button" disabled>Copy</button>
+              <button id="deleteButton" class="danger-button" type="button" disabled>Delete</button>
+            </div>
+          </header>
+
+          <div id="previewBody" class="preview-body empty-state">
+            Select an item from history or create a new paste.
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
