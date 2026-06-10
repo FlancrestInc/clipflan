@@ -1,0 +1,13 @@
+.git
+.gitignore
+.superpowers
+.worktrees
+Dockerfile
+README.md
+docs
+node_modules
+npm-debug.log*
+data
+.env
+.DS_Store
+coverage

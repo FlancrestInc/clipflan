@@ -17,6 +17,24 @@ By default the app listens at:
 http://localhost:3000
 ```
 
+## Run With Docker
+
+Build and run the image:
+
+```bash
+docker build -t clipflan .
+docker run --rm -p 3000:3000 -v clipflan-data:/app/data clipflan
+```
+
+Or use Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+The container listens on port `3000` and stores durable app data in `/app/data`.
+The examples above keep that directory in a Docker volume named `clipflan-data`.
+
 ## Configuration
 
 Environment variables:
